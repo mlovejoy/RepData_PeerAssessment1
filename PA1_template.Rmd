@@ -93,7 +93,7 @@ activityImputed$steps[activity_nas] <- mean_interval[as.character(activityImpute
 ```
 
 ### 4. Histogram of total steps per day and mean/median
-```{r}
+```{r fig.width=7, fig.height=6}
 steps_perdayImputed <- tapply(activityImputed$steps, activityImputed$date, sum)
     
 hist(steps_perdayImputed, 10, main = "Histogram of Total Steps per Day (With Imputed Values)", xlab = "Number of Steps")
@@ -103,6 +103,14 @@ mean_perdayImputed
 
 median_perdayImputed <- median(steps_perdayImputed)
 median_perdayImputed
+```
+
+```{r}
+png("figure/HistogramImputedStepsPerDay.png", width = 480, height = 480)
+
+hist(steps_perdayImputed, 10, main = "Histogram of Total Steps per Day (With Imputed Values)", xlab = "Number of Steps")
+
+dev.off()
 ```
 
 #### Note that mean steps per day did not change, while median steps per day changed from 10,765 to 10,766.19, a difference of 1.19 steps

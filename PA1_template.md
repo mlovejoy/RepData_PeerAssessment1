@@ -58,6 +58,12 @@ steps_perday <- tapply(activityrm$steps, activityrm$date, sum)
 ```
 
 
+```r
+    hist(steps_perday, 10, main = "Histogram of Total Steps per Day", xlab = "Number of Steps")
+```
+
+![plot of chunk unnamed-chunk-7](figure/unnamed-chunk-7-1.png)
+
 ### 3. Mean and median for total number of steps per day
 
 ```r
@@ -104,7 +110,7 @@ median_perday
     plot(y = daily_activity, x = names(daily_activity), type = "l", xlab = "5-Minute Interval", ylab = "Average Number of Steps", main = "Average Daily Activity Pattern")
 ```
 
-![plot of chunk unnamed-chunk-10](figure/unnamed-chunk-10-1.png)
+![plot of chunk unnamed-chunk-11](figure/unnamed-chunk-11-1.png)
 ### 2. Determine the 5-minute interval with most steps
 
 ```r
@@ -146,7 +152,7 @@ steps_perdayImputed <- tapply(activityImputed$steps, activityImputed$date, sum)
 hist(steps_perdayImputed, 10, main = "Histogram of Total Steps per Day (With Imputed Values)", xlab = "Number of Steps")
 ```
 
-![plot of chunk unnamed-chunk-14](figure/unnamed-chunk-14-1.png)
+![plot of chunk unnamed-chunk-15](figure/unnamed-chunk-15-1.png)
 
 ```r
 mean_perdayImputed <- mean(steps_perdayImputed)
@@ -164,6 +170,20 @@ median_perdayImputed
 
 ```
 ## [1] 10766.19
+```
+
+
+```r
+png("figure/HistogramImputedStepsPerDay.png", width = 480, height = 480)
+
+hist(steps_perdayImputed, 10, main = "Histogram of Total Steps per Day (With Imputed Values)", xlab = "Number of Steps")
+
+dev.off()
+```
+
+```
+## quartz_off_screen 
+##                 2
 ```
 
 #### Note that mean steps per day did not change, while median steps per day changed from 10,765 to 10,766.19, a difference of 1.19 steps
@@ -217,4 +237,4 @@ median_perdayImputed
     plot(y = daily_activityImputedWD, x = names(daily_activityImputedWD), type = "l", xlab = "5-Minute Interval", ylab = "Average Number of Steps", main = "Average Daily Activity Pattern - Weekdays")
 ```
 
-![plot of chunk unnamed-chunk-19](figure/unnamed-chunk-19-1.png)
+![plot of chunk unnamed-chunk-21](figure/unnamed-chunk-21-1.png)
