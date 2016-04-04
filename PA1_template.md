@@ -56,13 +56,7 @@ steps_perday <- tapply(activityrm$steps, activityrm$date, sum)
 ## quartz_off_screen 
 ##                 2
 ```
-
-
-```r
-    hist(steps_perday, 10, main = "Histogram of Total Steps per Day", xlab = "Number of Steps")
-```
-
-![plot of chunk unnamed-chunk-7](figure/unnamed-chunk-7-1.png)
+![plot of chunk histogram of total steps per day](figure/HistogramStepsPerDay.png)
 
 ### 3. Mean and median for total number of steps per day
 
@@ -104,13 +98,8 @@ median_perday
 ## quartz_off_screen 
 ##                 2
 ```
+![plot of chunk average daily activity pattern](figure/PlotAvgDailyActivity.png)
 
-
-```r
-    plot(y = daily_activity, x = names(daily_activity), type = "l", xlab = "5-Minute Interval", ylab = "Average Number of Steps", main = "Average Daily Activity Pattern")
-```
-
-![plot of chunk unnamed-chunk-11](figure/unnamed-chunk-11-1.png)
 ### 2. Determine the 5-minute interval with most steps
 
 ```r
@@ -149,12 +138,6 @@ activityImputed$steps[activity_nas] <- mean_interval[as.character(activityImpute
 ```r
 steps_perdayImputed <- tapply(activityImputed$steps, activityImputed$date, sum)
     
-hist(steps_perdayImputed, 10, main = "Histogram of Total Steps per Day (With Imputed Values)", xlab = "Number of Steps")
-```
-
-![plot of chunk unnamed-chunk-15](figure/unnamed-chunk-15-1.png)
-
-```r
 mean_perdayImputed <- mean(steps_perdayImputed)
 mean_perdayImputed
 ```
@@ -185,6 +168,7 @@ dev.off()
 ## quartz_off_screen 
 ##                 2
 ```
+![plot of chunk histogram of imputed steps per day](figure/HistogramImputedStepsPerDay.png)
 
 #### Note that mean steps per day did not change, while median steps per day changed from 10,765 to 10,766.19, a difference of 1.19 steps
 
@@ -227,14 +211,4 @@ dev.off()
 ## quartz_off_screen 
 ##                 2
 ```
-
-
-```r
-    par(mfrow=c(2, 1), mai = c(.5, .5, .5, .5))
-    
-    plot(y = daily_activityImputedWE, x = names(daily_activityImputedWE), type = "l", xlab = NA, ylab = "Average Number of Steps", main = "Average Daily Activity Pattern - Weekends")
-
-    plot(y = daily_activityImputedWD, x = names(daily_activityImputedWD), type = "l", xlab = "5-Minute Interval", ylab = "Average Number of Steps", main = "Average Daily Activity Pattern - Weekdays")
-```
-
-![plot of chunk unnamed-chunk-21](figure/unnamed-chunk-21-1.png)
+![plot of chunk weekend-weekday imputed daily activity](figure/Weekend-WeekdayImputedAvgDailyActivity.png)
