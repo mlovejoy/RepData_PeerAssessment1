@@ -1,8 +1,8 @@
 ---
 title: "Reproducible Research: Peer Assessment 1"
 author: mlovejoy
-output: PA1_template
-  html_document: 
+output: PA1_template.md
+  html_document: PA1_template.html
     keep_md: true
 ---
 
